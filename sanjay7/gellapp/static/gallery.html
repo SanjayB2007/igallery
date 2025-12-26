@@ -1,0 +1,66 @@
+<html>
+<head>
+<title>Anime Image Gallery</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>Anime Gallery</header>
+
+<div class="container">
+    <div class="gallery-box">
+        <img id="galleryImage" src="img1.webp" alt="Anime Image">
+        <p class="caption" id="caption">Shokudaikiri Mitsutada</p>
+
+        <div class="buttons">
+            <button onclick="prev()">Previous</button>
+            <button onclick="next()">Next</button>
+        </div>
+    </div>
+</div>
+
+<footer>
+Designed & Developed by Sanjay Babu M &copy; 2025
+</footer>
+
+<script>
+let gallery = [
+    "img1.webp",
+    "img2.jpg",
+    "img3.jpg",
+    "img4.jpg",
+    "img5.webp"
+    
+];
+
+let captions = [
+    "Shokudaikiri mitsutada",
+    "Yato",
+    "Aoba seragaki",
+    "Madara uchiha",
+    "Monkey D.luffy"
+];
+
+let index = 0;
+
+function next(){
+    index++;
+    if(index >= gallery.length){
+        index = 0;
+    }
+    document.getElementById("galleryImage").src = gallery[index];
+    document.getElementById("caption").innerText = captions[index];
+}
+
+function prev(){
+    index--;
+    if(index < 0){
+        index = gallery.length - 1;
+    }
+    document.getElementById("galleryImage").src = gallery[index];
+    document.getElementById("caption").innerText = captions[index];
+}
+</script>
+
+</body>
+</html>
